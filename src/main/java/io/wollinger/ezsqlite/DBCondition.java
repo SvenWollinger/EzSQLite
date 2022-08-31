@@ -16,12 +16,20 @@ public class DBCondition<TYPE> {
         this.conditionType = conditionType;
     }
 
-    public String asString() {
+    public String typeAsString() {
         switch (conditionType) {
             case EQUALS -> {
                 return "=";
             }
         }
         return "";
+    }
+
+    public String toString() {
+        return String.format("Key: %s, Value: %s", key, value);
+    }
+
+    public Class<?> getType() {
+        return value.getClass();
     }
 }
